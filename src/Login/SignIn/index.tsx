@@ -2,7 +2,7 @@ import React from 'react';
 import { Keyboard, KeyboardAvoidingView, TouchableWithoutFeedback } from 'react-native';
 import { FormSignIn } from '../../components/FormSignIn';
 
-import LogoImg from '../../assets/imageDefault.png';
+import LogoImg from '../../assets/logo.png';
 
 import { Container, SectionLogo, Image } from './styles';
 

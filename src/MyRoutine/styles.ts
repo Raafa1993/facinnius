@@ -23,23 +23,30 @@ export const SubTitle = styled.Text`
     color: ${(props) => props.theme.COLORS.SUBTITLE};
 `;
 
+export const DaySelected = styled.Text`
+    font-size: 16px;
+    line-height: 22px;
+    font-family: ${(props) => props.theme.FONTS.BOLD};
+    color: ${(props) => props.theme.COLORS.GOLD};
+`;
+
 export const SectionWeek = styled.View`
     margin-top: 32px;
-    width: 30%;
+    flex-direction: row;
+    justify-content: space-between;
 `;
 export const ButtonWeek = styled.TouchableOpacity`
-    flex-direction: row;
-    justify-content: space-evenly;
     align-items: center;
-    width: 160px;
-    height: 46px;
+    padding: 20px;
+    margin: 4px;
     background-color: ${({ theme }) => theme.COLORS.GOLD};
-    border-radius: 8px;
+    border-radius: 12px;
+    flex: 1;
 `;
 
 export const TextButtonWeek = styled.Text`
     font-size: 18px;
-    line-height: 24px;
+    line-height: 22px;
     font-family: ${({ theme }) => theme.FONTS.MEDIUM};
     color: #fff;
 `;
