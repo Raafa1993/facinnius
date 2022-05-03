@@ -1,14 +1,14 @@
 import { useNavigation } from '@react-navigation/core';
 import React, { useState } from 'react';
-import { FlatList, ScrollView, StatusBar, View } from 'react-native';
-import { Header } from '../components/Header';
-import CardObjective from '../components/widgets/CardObjective';
-import CardWeek from '../components/widgets/CardWeek';
+import { ScrollView, StatusBar } from 'react-native';
+import { Header } from '../../components/Header';
+import CardObjective from '../../components/widgets/CardObjective';
+import CardWeek from '../../components/widgets/CardWeek';
 import uuid from 'react-native-uuid';
 
 import { EvilIcons } from '@expo/vector-icons';
 
-import globlaStyle from '../theme/global'
+import globlaStyle from '../../theme/global'
 import { 
   Container,
   SectionMessage,
@@ -23,7 +23,7 @@ import {
   SectionCardObjective,
   SectionCardDay,
 } from './styles';
-import DataTable from '../components/widgets/DataTable';
+import DataTable from '../../components/widgets/DataTable';
 
 export function Home(){
   const navigation = useNavigation<any>()

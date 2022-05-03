@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/core';
-import { FlatList, ScrollView, StatusBar, View } from 'react-native';
-import { Header } from '../components/Header';
-import CardObjective from '../components/widgets/CardObjective';
-import CardWeek from '../components/widgets/CardWeek';
+import { ScrollView, StatusBar } from 'react-native';
+import { Header } from '../../components/Header';
 import uuid from 'react-native-uuid';
 
-import { EvilIcons } from '@expo/vector-icons';
-
-import globlaStyle from '../theme/global'
+import globlaStyle from '../../theme/global'
 import { 
   Container,
   SectionMessage,
@@ -16,17 +12,11 @@ import {
   SubTitle,
   DaySelected,
   SectionWeek,
-  ButtonWeek,
-  TextButtonWeek,
   SectionMyObjective,
   TextObjective,
-  TextValorObjective,
-  SectionCardObjective,
-  SectionCardDay,
 } from './styles';
-import DataTable from '../components/widgets/DataTable';
-import { ButtonDay } from '../components/ButtonDay';
-import CardRoutine from '../components/widgets/CardRoutine';
+import { ButtonDay } from '../../components/ButtonDay';
+import CardRoutine from '../../components/widgets/CardRoutine';
 
 export function MyRoutine(props: any){
   const navigation = useNavigation<any>()
@@ -39,32 +29,32 @@ export function MyRoutine(props: any){
 
   const Days = [
   {
-    id,
+    id: uuid.v4(),
     abbreviatedDay: 'SEG',
     day: 'Segunda-feira'
   },
   {
-    id,
+    id: uuid.v4(),
     abbreviatedDay: 'TER',
     day: 'Terça-feira'
   },
   {
-    id,
+    id: uuid.v4(),
     abbreviatedDay: 'QUA',
     day: 'Quarta-feira'
   },
   {
-    id,
+    id: uuid.v4(),
     abbreviatedDay: 'QUI',
     day: 'Quinta-feira'
   },
   {
-    id,
+    id: uuid.v4(),
     abbreviatedDay: 'SEX',
     day: 'Sexta-feira'
   },
   {
-    id,
+    id: uuid.v4(),
     abbreviatedDay: 'SÁB',
     day: 'Sábado'
   },  
@@ -124,12 +114,13 @@ export function MyRoutine(props: any){
 
         <SectionWeek>
           <ScrollView horizontal>
-            {Days.map((row) => (
-              <ButtonDay
-                onPress={() => setSelectedDay(row)}
-                title={row.abbreviatedDay}
-                selected={selectedDay.day === row.day}
-              />
+            {Days.map((row, key) => (
+                <ButtonDay
+                  key={key}
+                  onPress={() => setSelectedDay(row)}
+                  title={row.abbreviatedDay}
+                  selected={selectedDay.day === row.day}
+                />
             ))}
           </ScrollView>
         </SectionWeek>
@@ -141,7 +132,7 @@ export function MyRoutine(props: any){
         {Routine.map((row: any) => (
           <CardRoutine
             key={row.id}
-            onPress={() => console.log(row.id)}
+            onPress={() => navigation.navigate("Stoque", { key: row.id })}
             data={row}
           />
         ))}

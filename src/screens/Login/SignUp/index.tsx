@@ -1,9 +1,9 @@
 import React from 'react';
 import { Keyboard, KeyboardAvoidingView, TouchableWithoutFeedback } from 'react-native';
-import { FormSignUp } from '../../components/FormSignUp';
+import { FormSignUp } from '../../../components/FormSignUp';
 
 //IMAGES
-import LogoImg from '../../assets/ImageDefault.png';
+import LogoImg from '../../../assets/ImageDefault.png';
 
 import { Container, SectionLogo, Image } from './styles';
 

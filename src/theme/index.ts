@@ -9,6 +9,8 @@ export default {
     ALERT: '#F54949',
 
     GOLD: '#C59A32',
+    BLUE: '#001E3A',
+    GREEN: '#25B54D',
 
   },
 

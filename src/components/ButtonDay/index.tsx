@@ -8,12 +8,13 @@ interface Props extends TouchableOpacityProps {
     selected?: boolean;
   }
 
-export function ButtonDay({ title, onPress, selected }: Props){
+export function ButtonDay({ title, onPress, selected, ...rest }: Props){
   return (
     <Container
       activeOpacity={0.7}
       onPress={onPress}
       selected={selected}
+      {...rest}
     >
     
     <Text
