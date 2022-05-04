@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/core';
 import { ScrollView, StatusBar } from 'react-native';
 import uuid from 'react-native-uuid';
@@ -10,7 +10,7 @@ import CardInfoClient from '../../components/widgets/CardInfoClient';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
+
 
 import globlaStyle from '../../theme/global'
 import { 
@@ -24,13 +24,16 @@ import {
   SectionFooter,
   SectionStoque,
   SectionCategoryButtons,
-  ButtonCategory,
-  TextButtonCategory,
+  SectionFilter,
 } from './styles';
+import { ButtonCategory } from '../../components/ButtonCategory';
+import { ButtonDefault } from '../../components/ButtonDefault';
 
 export function Stoque(props: any){
   const navigation = useNavigation<any>()
   const id = uuid.v4();
+
+  const [selectedCategory, setSelectedCategory] = useState('Vendas')
 
   return (
     <Container style={globlaStyle.containerClient}>
@@ -57,27 +60,40 @@ export function Stoque(props: any){
               MS
             </TextClient>
           </SectionClient>
+
           <CardInfoClient />
 
           <SectionStoque>
             <SectionCategoryButtons>
-              <ButtonCategory>
-                <Feather name="shopping-cart" size={24} color="black" />
-                <TextButtonCategory>Vendas</TextButtonCategory>
-              </ButtonCategory>
+              <ButtonCategory
+                title='Vendas'
+                icon={<Feather name="shopping-cart" size={24} color="white" />}
+                onPress={() => setSelectedCategory('Vendas')}
+                isSelected={selectedCategory === 'Vendas'}
+              />
 
-              <ButtonCategory>
-                <AntDesign name="tago" size={24} color="black" />
-                <TextButtonCategory>Vendas</TextButtonCategory>
-              </ButtonCategory>
+              <ButtonCategory
+                title='Vitrine'
+                icon={<AntDesign name="tago" size={24} color="white" />}
+                onPress={() => setSelectedCategory('Vitrine')}
+                isSelected={selectedCategory === 'Vitrine'}
+              />
 
-              <ButtonCategory>
-                <Ionicons name="document-text-outline" size={24} color="black" />
-                <TextButtonCategory>Vendas</TextButtonCategory>
-              </ButtonCategory>
-
-              <ButtonCategory />
+              <ButtonCategory
+                title='Resumo'
+                icon={<Feather name="shopping-cart" size={24} color="white" />}
+                onPress={() => setSelectedCategory('Resumo')}
+                isSelected={selectedCategory === 'Resumo'}
+              />
             </SectionCategoryButtons>
+
+            <SectionFilter>
+              <ButtonDefault
+                title='Adicionar novo produto'
+                icon={<Feather name="plus-circle" size={24} color="white" />}
+              />
+            </SectionFilter>
+
           </SectionStoque>
         </SectionMain>
 

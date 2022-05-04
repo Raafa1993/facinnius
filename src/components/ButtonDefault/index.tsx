@@ -5,25 +5,22 @@ import { Container, ViewIcon, Title } from './styles';
 
 interface Props extends TouchableOpacityProps {
   title: string;
-  icon: any;
-  isSelected?: boolean;
+  icon?: any;
 }
 
-export function ButtonCategory({ title, icon, isSelected, ...rest }: Props) {
+export function ButtonDefault({ title, icon, ...rest }: Props) {
   return (
     <Container
       activeOpacity={0.7}
-      isSelected={isSelected}
       {...rest}
     >
-      <ViewIcon
-        isSelected={isSelected}
-      >
-        {icon}
-      </ViewIcon>
-      <Title
-        isSelected={isSelected}
-      >
+      {icon && (
+        <ViewIcon>
+          {icon}
+        </ViewIcon>
+      )}
+
+      <Title>
         {title}
       </Title>
     </Container>

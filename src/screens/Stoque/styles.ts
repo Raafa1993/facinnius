@@ -73,25 +73,17 @@ export const TextMain = styled.Text`
 export const SectionStoque = styled.View`
     width: 100%;
     margin-bottom: 12px;
-    background-color: lightblue;
 `;
 
 export const SectionCategoryButtons = styled.View`
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    border-bottom-width: 2px;
-    padding-bottom: 4px;
-    border-color: ${({theme}) => theme.COLORS.SUBTITLE};
+    margin-bottom: 12px;
 `;
 
-export const ButtonCategory = styled.TouchableOpacity`
-    align-items: center;
-    justify-content: center;
-`;
-
-export const TextButtonCategory = styled.Text`
-
+export const SectionFilter = styled.View`
+    justify-content: space-between;
 `;
 
 export const SectionFooter = styled.View`

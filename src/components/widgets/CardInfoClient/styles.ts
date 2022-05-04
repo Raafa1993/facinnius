@@ -10,6 +10,7 @@ export const Container = styled.View`
     background-color: #FFF3D6;
     position: relative;
     margin-top: -20px;
+    margin-bottom: 32px;
 `;
 
 export const SectionTable = styled.View`
