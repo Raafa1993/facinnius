@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { InputNumeric } from "../../Inputs/InputNumeric";
 
 import {
   Container,
@@ -17,6 +18,9 @@ interface PropsData {
 }
 
 export default function CardDetailsPayment({ isTotal }: PropsData) {
+  const [discount, setDiscount] = useState("");
+  const [payment, setPayment] = useState("");
+
   return (
     <Container>
       <SectionFinishedAttendence>
@@ -33,7 +37,7 @@ export default function CardDetailsPayment({ isTotal }: PropsData) {
       <SectionTotals>
         <ViewTotalValues>
           <TextTotalDesciption>
-            Total da conta
+            Total
           </TextTotalDesciption>
           <TextTotalValues
             isTotal={isTotal}
@@ -42,23 +46,23 @@ export default function CardDetailsPayment({ isTotal }: PropsData) {
           </TextTotalValues>
         </ViewTotalValues>
 
-        <ViewTotalValues>
-          <TextTotalDesciption>
-            Desconto
-          </TextTotalDesciption>
-          <TextTotalValues>
-            R$: 20,00
-          </TextTotalValues>
-        </ViewTotalValues>
+        <InputNumeric
+          inputMaskChange={(value: any) => setDiscount(value)}
+          label="R$: "
+          title="Desconto"
+          mask="currency"
+          keyboardType="numeric"
+          value={discount}
+        />
 
-        <ViewTotalValues>
-          <TextTotalDesciption>
-            Pagamento
-          </TextTotalDesciption>
-          <TextTotalValues>
-            R$: 50,00
-          </TextTotalValues>
-        </ViewTotalValues>
+        <InputNumeric
+          inputMaskChange={(value: any) => setPayment(value)}
+          label="R$: "
+          title="Pagamento"
+          mask="currency"
+          keyboardType="numeric"
+          value={payment}
+        />
       
       </SectionTotals>
     </Container>

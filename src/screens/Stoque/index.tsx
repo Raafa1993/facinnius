@@ -6,6 +6,10 @@ import CardCalendar from '../../components/widgets/CardCalendar';
 import CardDetailsPayment from '../../components/widgets/CardDetailsPayment';
 import CardInfoClient from '../../components/widgets/CardInfoClient';
 
+//IMAGE
+import Item1 from '../../assets/item1.png';
+import Item2 from '../../assets/item2.png';
+
 //ICONS
 import { MaterialIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
@@ -28,12 +32,42 @@ import {
 } from './styles';
 import { ButtonCategory } from '../../components/ButtonCategory';
 import { ButtonDefault } from '../../components/ButtonDefault';
+import CardProduct from '../../components/widgets/CardProduct';
+import DataTableResumeRequest from '../../components/widgets/DataTableResumeRequest';
+import { ButtonToggleCard } from '../../components/ButtonToggleCard';
+
+interface Products {
+  id: any;
+  image: any;
+  title: string;
+  valueUnit: string;
+  valueQtd: string;
+  subTotal: string;
+}
 
 export function Stoque(props: any){
   const navigation = useNavigation<any>()
   const id = uuid.v4();
 
+  const [toggleCardItem, setToggleCardItem] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('Vendas')
+  const [products, setProducts] = useState<Products[]>([{
+    id: uuid.v4(),
+    image: Item1,
+    title: 'Recovery cupuaçu economy',
+    valueUnit: '10,00',
+    valueQtd: '5',
+    subTotal: '55,00',
+  },
+  {
+    id: uuid.v4(),
+    image: Item2,
+    title: 'Infinity One',
+    valueUnit: '100,00',
+    valueQtd: '15',
+    subTotal: '1.155,00',
+  },
+])
 
   return (
     <Container style={globlaStyle.containerClient}>
@@ -87,12 +121,42 @@ export function Stoque(props: any){
               />
             </SectionCategoryButtons>
 
-            <SectionFilter>
-              <ButtonDefault
-                title='Adicionar novo produto'
-                icon={<Feather name="plus-circle" size={24} color="white" />}
+
+            {selectedCategory !== 'Resumo' ? (
+              <>
+                <SectionFilter>
+                  <ButtonDefault
+                    title='Adicionar novo produto'
+                    icon={<Feather name="plus-circle" size={24} color="white" />}
+                  />
+    
+                  <ButtonToggleCard
+                    toggle={toggleCardItem}
+                    onPress={() => setToggleCardItem(!toggleCardItem)}
+                  />
+                </SectionFilter>
+    
+                {products.map((row) => (
+                  <CardProduct
+                    key={row.id}
+                    data={row}
+                    onPress={() => console.log('Card')}
+                    type={selectedCategory}
+                  />
+                ))}
+
+                <DataTableResumeRequest
+                  title={selectedCategory}
+                  dataProducts={products}
+                  />
+              </>
+            ) : (
+              <DataTableResumeRequest
+                title={selectedCategory}
+                isDescription
+                type='Resumo'
               />
-            </SectionFilter>
+            )}
 
           </SectionStoque>
         </SectionMain>

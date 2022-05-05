@@ -23,7 +23,6 @@ export const TextSale = styled.Text`
     font-size: ${RFPercentage(1.8)}px;
     line-height: 26px;
     text-transform: uppercase;
-
 `;
 
 export const ButtonFinishedAttendence = styled.TouchableOpacity`
@@ -50,6 +49,7 @@ export const TextButtonFinished = styled.Text`
 
 export const SectionTotals = styled.View`
     flex-direction: row;
+    width: 100%;
     justify-content: space-between;
     padding: 20px;
     background-color: ${({ theme }) => theme.COLORS.BLUE};
@@ -57,6 +57,7 @@ export const SectionTotals = styled.View`
 
 export const ViewTotalValues = styled.View`
     align-items: baseline;
+    flex: 1;
 `;
 
 export const TextTotalDesciption = styled.Text`
@@ -73,4 +74,3 @@ export const TextTotalValues = styled.Text<Props>`
     font-size: ${RFPercentage(2.2)}px;
     line-height: 28px;
 `;
-

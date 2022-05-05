@@ -35,7 +35,7 @@ export const SectionMain = styled.View`
     align-items: center;
     background-color: #F5F5F5;
     padding: 20px;
-    height: 800px;
+    flex: 1;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
     position: relative;
@@ -79,11 +79,13 @@ export const SectionCategoryButtons = styled.View`
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    margin-bottom: 12px;
+    margin-bottom: 22px;
 `;
 
 export const SectionFilter = styled.View`
+    flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 22px;
 `;
 
 export const SectionFooter = styled.View`
